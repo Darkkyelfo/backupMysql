@@ -10,6 +10,7 @@ bases = ["dataset_1",
 save_folder = os.path.dirname(os.path.abspath(__file__))
 # comando = "/opt/lampp/bin/mysqldump -u root granja > %s-%s.sql"
 comando = "mysqldump -u root %s > %s/%s-%s.sql"
+comando_upload_folder = "gdrive upload %s --recursive"
 data_hj = datetime.today()
 dt_string = data_hj.strftime("%d_%m_%Y_%H_%M_%S")
 for base in bases:
@@ -18,3 +19,5 @@ for base in bases:
         os.system(comando % (base,save_folder, base, dt_string))
     except Exception as e:
         print(e)
+#faz o upload dos arquivos para o drive do google
+os.system(comando_upload_folder % save_folder)
