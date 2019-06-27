@@ -1,4 +1,5 @@
 import os
+import time
 from datetime import datetime
 
 #lista com os nomes dos bancos que se deseja realizar o backup
@@ -10,7 +11,7 @@ bases = ["dataset_1",
 save_folder = os.path.dirname(os.path.abspath(__file__))
 # comando = "/opt/lampp/bin/mysqldump -u root granja > %s-%s.sql"
 comando = "mysqldump -u root %s > %s/%s-%s.sql"
-comando_upload_folder = "gdrive upload %s --recursive"
+comando_upload_folder = "gdrive sync upload %s 1bnKyhrWxoNxjHuEnbWN3sBm8Yq7J846j"
 data_hj = datetime.today()
 dt_string = data_hj.strftime("%d_%m_%Y_%H_%M_%S")
 for base in bases:
